@@ -8,7 +8,44 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <title>React App</title>
+    <title>Controle de Usuários</title>
+	<style>
+		a {
+			text-decoration: none;
+		}
+
+		ul { 
+			list-style: none;
+		}
+		
+		.nav {
+			background-color: #222;
+		}
+
+		.nav ul {
+			display: flex;
+			margin: 0 2em;
+			padding: 0.3em;
+			justify-content: flex-end;
+			width: calc(100% - 4em);
+		}
+
+		.nav ul li {
+			padding: .5em;
+		}
+
+		.nav ul li a {
+			color: white !important;
+			text-transform: uppercase;
+		}
+
+		.container {
+			box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+			border-radius: 25px;
+			margin: 1em auto;
+			padding: 1em 0.5em;
+		}
+	</style>
   </head>
   <body>
     <div id="root"></div>

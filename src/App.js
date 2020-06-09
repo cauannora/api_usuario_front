@@ -5,6 +5,7 @@ import {
   Route
 } from 'react-router-dom'
 
+import Info from './components/Info';
 import UsersList from './components/Home';
 import UsersEdit from './components/UserEdit';
 import UsersNew from './components/UserNew';
@@ -24,6 +25,9 @@ function App() {
         <Route path='/new'>
           <UsersNew/>
         </Route>
+		<Route path='/'>
+			<Info/>
+		</Route>
       </Switch>
       </Layout>
     </Router>
