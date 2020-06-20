@@ -1,15 +1,11 @@
 import React from 'react';
-import Header from './Header';
-import UsersTable from './UsersTable'
-import NewButton from './HomeUserButton'
+import LayoutJumbotron from '../components/layout/Jumbotron';
 
 function UsersList() {
-    const title = "Lista de Usuarios"
+    const title = "Desofuscador"
     return (
         <React.Fragment>
-            <Header title={title}/>
-            <NewButton/>
-            <UsersTable />
+            <LayoutJumbotron title={title}/>
         </React.Fragment>
         );
 }

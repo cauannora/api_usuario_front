@@ -73,10 +73,6 @@ class UserForm extends  React.Component{
    render(){
       return  (
             <Form>
-               <Form.Group controlId="username">
-                  <Form.Label>Nome de Usuario</Form.Label>
-                  <Form.Control type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
-               </Form.Group>
                <Form.Group controlId="nome">
                   <Form.Label>Nome Completo</Form.Label>
                   <Form.Control type="text"  name="nome" value={this.state.nome} onChange={this.handleChange}/>
@@ -84,6 +80,14 @@ class UserForm extends  React.Component{
                <Form.Group controlId="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email"  name="email" value={this.state.email} onChange={this.handleChange}/>
+               </Form.Group>
+               <Form.Group controlId="senha">
+                  <Form.Label>Senha</Form.Label>
+                  <Form.Control type="password"  name="senha" onChange={this.handleChange}/>
+               </Form.Group>
+               <Form.Group controlId="conf_senha">
+                  <Form.Label>Confirmar senha</Form.Label>
+                  <Form.Control type="password"  name="conf_senha" onChange={this.handleChange}/>
                </Form.Group>
                <Button variant="primary" onClick={this.handleSubmit}>Registrar</Button>{' '}
                <Button variant="secondary" type="button" onClick={this.handleCancel}>Cancelar</Button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import Header from './layout/Header';
 import Container from 'react-bootstrap/Container';
 
 function Info(props){
