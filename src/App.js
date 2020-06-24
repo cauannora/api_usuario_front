@@ -5,12 +5,13 @@ import {
   Route
 } from 'react-router-dom'
 
-import Info from './components/Info';
-import UsersList from './components/Home';
-import UsersEdit from './components/UserEdit';
-import UsersNew from './components/UserNew';
+import Info from './components/pages/Info';
+import UsersList from './components/pages/Home';
+import UsersEdit from './components/pages/Edit';
+import UsersNew from './components/pages/New';
 import Layout from './components/layout/Layout'
-import FormLogin from './components/FormLogin'
+import FormLogin from './components/forms_buttons/FormLogin'
+import DecoderUpload from './components/pages/Decoder'
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         <Route exact path='/'>
           <UsersList/>
         </Route>
+		    <Route exact path='/decode'>
+			    <DecoderUpload/>
+		    </Route>
         <Route exact path='/edit/:id'>
           <UsersEdit/>
         </Route>
