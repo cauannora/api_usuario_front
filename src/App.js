@@ -5,29 +5,37 @@ import {
   Route
 } from 'react-router-dom'
 
-import Info from './components/Info';
-import UsersList from './components/Home';
-import UsersEdit from './components/UserEdit';
-import UsersNew from './components/UserNew';
-import Layout from './components/Layout'
+import Info from './components/pages/Info';
+import UsersList from './components/pages/Home';
+import UsersEdit from './components/pages/Edit';
+import UsersNew from './components/pages/New';
+import Layout from './components/layout/Layout'
+import FormLogin from './components/forms_buttons/FormLogin'
+import DecoderUpload from './components/pages/Decoder'
 
 function App() {
   return (
     <Router>
       <Layout>
       <Switch>
-        <Route path='/home'>
+        <Route exact path='/'>
           <UsersList/>
         </Route>
-        <Route path='/edit/:id'>
+		    <Route exact path='/decode'>
+			    <DecoderUpload/>
+		    </Route>
+        <Route exact path='/edit/:id'>
           <UsersEdit/>
         </Route>
-        <Route path='/new'>
+        <Route exact path='/new'>
           <UsersNew/>
         </Route>
-		<Route path='/'>
-			<Info/>
-		</Route>
+        <Route exact path='/login'>
+          <FormLogin/>
+        </Route>
+		    <Route path='/'>
+			    <Info/>
+		    </Route>
       </Switch>
       </Layout>
     </Router>

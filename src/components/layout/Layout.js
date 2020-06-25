@@ -1,16 +1,11 @@
 import React from 'react';
-import Navbar from './Navbar';
 import Container from 'react-bootstrap/Container';
-
+import LayoutNavbar from '../layout/Navbar';
 function Layout(props){
-	const nav = {
-		width: '100%',
-		backgroundColor: '#222',
-	};
     return (
 		<React.Fragment>
-			<Navbar/>
-			<Container>{props.children}</Container>;
+			<LayoutNavbar/>
+			<Container id="containerLayout">{props.children}</Container>
 		</React.Fragment>
 	);
 }
