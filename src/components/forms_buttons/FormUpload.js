@@ -9,7 +9,7 @@ function UploadForm() {
     return (
         <Row>
             <Col>
-                <Form action="http://localhost:3001/upload" 
+                <Form action="http://localhost:3001/upload/file" 
                 method="POST" encType="multipart/form-data"> 
                     <Form.Group>
                         <Form.File id="attachment" name="attachment"
