@@ -5,12 +5,12 @@ import {
   Route
 } from 'react-router-dom'
 
-import Info from './components/pages/Info';
-import UsersList from './components/pages/Home';
+import Lista from './components/pages/Info';
+import Home from './components/pages/Home';
 import UsersEdit from './components/pages/Edit';
 import UsersNew from './components/pages/New';
 import Layout from './components/layout/Layout'
-import FormLogin from './components/forms_buttons/FormLogin'
+// import FormLogin from './components/forms_buttons/FormLogin'
 import DecoderUpload from './components/pages/Decoder'
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       <Layout>
       <Switch>
         <Route exact path='/'>
-          <UsersList/>
+          <Home/>
         </Route>
 		    <Route exact path='/decode'>
 			    <DecoderUpload/>
@@ -30,11 +30,11 @@ function App() {
         <Route exact path='/new'>
           <UsersNew/>
         </Route>
-        <Route exact path='/login'>
+        {/* <Route exact path='/login'>
           <FormLogin/>
-        </Route>
-		    <Route path='/'>
-			    <Info/>
+        </Route> */}
+		    <Route exact path='/lista'>
+			    <Lista/>
 		    </Route>
       </Switch>
       </Layout>
