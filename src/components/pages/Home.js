@@ -1,7 +1,7 @@
 import React from 'react';
 import LayoutJumbotron from '../layout/Jumbotron';
 
-function UsersList() {
+function Home() {
     const title = "Desofuscador"
     return (
         <React.Fragment>
@@ -9,4 +9,4 @@ function UsersList() {
         </React.Fragment>
         );
 }
-export default UsersList;
+export default Home;

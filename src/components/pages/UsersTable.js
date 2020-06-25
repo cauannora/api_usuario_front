@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button'
 
-import UserDelButton from './UserDelButton';
+import UserDelButton from '../forms_buttons/UserDelButton';
 
 class UsersTable extends React.Component{
     constructor(props){
@@ -64,7 +64,7 @@ class UsersTable extends React.Component{
 
 function TableHeader(){
     return (
-        <thead>
+        <thead id="TableLayout">
             <tr>
                 <th>ID</th>
                 <th>Nome de Usuario</th>
