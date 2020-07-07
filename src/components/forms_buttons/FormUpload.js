@@ -17,7 +17,7 @@ class UploadForm extends React.Component {
     }
   
     handleChange(event) {this.setState({valueInput: event.target.value}); console.log(this.state.valueInput) }
-    handleClear(event) {this.setState({valueInput: "", valueOutput: ""}); console.log(this.state.valueInput) }
+    handleClear() {this.setState({valueInput: "", valueOutput: ""}); console.log(this.state.valueInput) }
     handleSubmit(event) {
         const texto =  {
             'texto' : this.state.valueInput
@@ -46,14 +46,6 @@ class UploadForm extends React.Component {
         return(
 
         <Row>
-            {/* <Form action="http://localhost:3001/upload/file" 
-                        method="POST" encType="multipart/form-data"> 
-                            <Form.Group>
-                                <Form.File id="attachment" name="attachment"
-                                label="Anexo"/>
-                            </Form.Group>
-                            <Button type="submit">Enviar</Button>
-                        </Form> */}
             <Col>
             <Accordion>
                 <Card>
@@ -72,7 +64,7 @@ class UploadForm extends React.Component {
                                     <Form.Label>Texto desofuscado:</Form.Label>
                                     <Form.Control disabled as="textarea" value={this.state.valueOutput} name="r_texto" id="r_texto" rows="6" />
                                     <Button id="btn" onClick={this.handleSubmit} variant="primary">Desofuscar</Button>
-                                    <Button id="btn"  onClick={this.handleClear} variant="secondary">Limpar campo</Button>
+                                    <Button id="btn" onClick={this.handleClear} variant="secondary">Limpar campo</Button>
                                 </Form>
                         </Card.Body>
                     </Accordion.Collapse>
@@ -90,8 +82,7 @@ class UploadForm extends React.Component {
                                 method="POST" encType="multipart/form-data">
                                     <Form.Group>
                                         <Form.Label>Arquivo para ser desofuscado</Form.Label>
-                                        <Form.File id="attachment" name="attachment"
-                                        label="Anexo"/>
+                                        <Form.File id="attachment" name="attachment"/>
                                     </Form.Group>   
                                     <Button id="btn" type="submit" variant="primary">Desofuscar</Button>
                                 </Form>

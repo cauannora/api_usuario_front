@@ -47,12 +47,12 @@ class UserForm extends  React.Component{
          .then(res => res.json())
          .then(data => {
             console.log(data)
-            window.location.href = '/home';
+            window.location.href = '/';
          })
          .catch(err => console.log(err))
    }
    handleCancel(){
-      window.location.href = '/home';
+      window.location.href = '/';
    }
    componentDidMount(){
       if('id' in this.props){

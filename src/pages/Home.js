@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutJumbotron from '../layout/Jumbotron';
+import LayoutJumbotron from '../components/layout/Jumbotron';
 
 function Home() {
     const title = "Desofuscador"

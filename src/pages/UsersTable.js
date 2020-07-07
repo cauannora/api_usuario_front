@@ -3,9 +3,10 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 
-import UserDelButton from '../forms_buttons/UserDelButton';
+
+import UserDelButton from '../components/forms_buttons/UserDelButton';
 
 class UsersTable extends React.Component{
     constructor(props){
@@ -52,7 +53,8 @@ class UsersTable extends React.Component{
         return(
             <Row>
                 <Col>
-                    <Table striped bordered>
+                    
+                    <Table striped bordered id="UserTable">
                     <TableHeader />
                     <TableBody users={this.state.users} deleteRow={this.deleteRow}/>
                     </Table>                
@@ -64,7 +66,7 @@ class UsersTable extends React.Component{
 
 function TableHeader(){
     return (
-        <thead id="TableLayout">
+       <thead id="TableLayout">
             <tr>
                 <th>ID</th>
                 <th>Nome de Usuario</th>
