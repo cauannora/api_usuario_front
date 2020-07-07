@@ -5,13 +5,14 @@ import {
   Route
 } from 'react-router-dom'
 
-import Lista from './components/pages/Info';
-import Home from './components/pages/Home';
-import UsersEdit from './components/pages/Edit';
-import UsersNew from './components/pages/New';
+import Lista from './pages/List';
+import Home from './pages/Home';
+import UsersEdit from './pages/Edit';
+import UsersNew from './pages/New';
 import Layout from './components/layout/Layout'
-// import FormLogin from './components/forms_buttons/FormLogin'
-import DecoderUpload from './components/pages/Decoder'
+// import Sobre from './pages/Sobre'
+// import FormLogin from './forms_buttons/FormLogin'
+import DecoderUpload from './pages/Decoder'
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         <Route exact path='/new'>
           <UsersNew/>
         </Route>
+        {/* <Route exact path='/sobre'>
+          <UsersNew/>
+        </Route> */}
         {/* <Route exact path='/login'>
           <FormLogin/>
         </Route> */}

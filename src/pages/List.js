@@ -1,5 +1,5 @@
 import React from 'react';
-import UserTable from '../pages/UsersTable';
+import UserTable from './UsersTable';
 
 function Info(props){
     return (

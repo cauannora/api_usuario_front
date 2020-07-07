@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Header from '../layout/Header';
-import UploadForm from '../forms_buttons/FormUpload';
+import Header from '../components/layout/Header';
+import UploadForm from '../components/forms_buttons/FormUpload';
 
 function DecoderUpload() {
     const title = "Decoder"

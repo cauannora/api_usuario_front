@@ -3,6 +3,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 function LoginForm() {
+
+
+
   return (
     <Form>
         <Form.Group controlId="email">
@@ -15,6 +18,7 @@ function LoginForm() {
         </Form.Group>
         <Button variant="primary" >Registrar</Button>{' '}
         <Button variant="secondary" type="button" >Cancelar</Button>
+       
     </Form>
   );
 }
