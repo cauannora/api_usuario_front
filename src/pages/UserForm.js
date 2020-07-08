@@ -72,7 +72,7 @@ class UserForm extends  React.Component{
    }
    render(){
       return  (
-            <Form>
+            <Form style={{paddingBottom: '1em'}}>
                <Form.Group controlId="nome">
                   <Form.Label>Nome Completo</Form.Label>
                   <Form.Control type="text"  name="nome" value={this.state.nome} onChange={this.handleChange}/>
