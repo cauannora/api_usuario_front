@@ -70,7 +70,6 @@ function TableHeader(){
             <tr>
                 <th>Nome</th>
                 <th>Email</th>
-                
             </tr>
         </thead>
     )

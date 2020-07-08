@@ -74,9 +74,9 @@ class UserForm extends  React.Component{
    }
    render(){
       return  (
-            <Form>
+            <Form style={{paddingBottom: '1em'}}>
                <Form.Group controlId="name">
-                  <Form.Label>Nome</Form.Label>
+                  <Form.Label>Nome Completo</Form.Label>
                   <Form.Control type="text"  name="name" value={this.state.name} onChange={this.handleChange}/>
                </Form.Group>
                <Form.Group controlId="email">

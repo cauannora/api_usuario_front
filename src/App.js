@@ -9,6 +9,7 @@ import Lista from './pages/List';
 import Home from './pages/Home';
 import UsersEdit from './pages/Edit';
 import UsersNew from './pages/New';
+import Sobre from './pages/Sobre';
 import Layout from './components/layout/Layout'
 // import Sobre from './pages/Sobre'
 // import FormLogin from './forms_buttons/FormLogin'
@@ -31,9 +32,9 @@ function App() {
         <Route exact path='/new'>
           <UsersNew/>
         </Route>
-        {/* <Route exact path='/sobre'>
-          <UsersNew/>
-        </Route> */}
+        <Route exact path='/sobre'>
+          <Sobre/>
+        </Route>
         {/* <Route exact path='/login'>
           <FormLogin/>
         </Route> */}
