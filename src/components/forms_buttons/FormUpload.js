@@ -37,7 +37,7 @@ class UploadForm extends React.Component {
                 console.log(data_msg.data)
                 this.setState({valueOutput: data_msg.data})
             })
-            .catch(err => alert("erro:"+err))
+            .catch(err => alert(err))
 
       event.preventDefault();
     }
@@ -47,7 +47,7 @@ class UploadForm extends React.Component {
 
         <Row>
             <Col>
-            <Accordion>
+            <Accordion defaultActiveKey="0">
                 <Card>
                     <Card.Header>
                         <Accordion.Toggle as={Button} variant="light" eventKey="0">

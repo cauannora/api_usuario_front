@@ -6,9 +6,10 @@ class UserForm extends  React.Component{
    constructor(props){
       super(props);
       this.state = {
-         nome: '',
+         name: '',
          email: '',
-         username: ''
+         password: '',
+         re_password : ''
       }
       this.handleCancel = this.handleCancel.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -62,9 +63,10 @@ class UserForm extends  React.Component{
             .then(res => res.json())
             .then(data => {
                this.setState({
-                  nome: data.data.nome,
+                  name: data.data.name,
                   email: data.data.email,
-                  username: data.data.username
+                  password: data.data.password,
+                  re_password: data.data.re_password
                })
             })
             .catch(err => console.log(err))
@@ -73,21 +75,21 @@ class UserForm extends  React.Component{
    render(){
       return  (
             <Form>
-               <Form.Group controlId="nome">
-                  <Form.Label>Nome Completo</Form.Label>
-                  <Form.Control type="text"  name="nome" value={this.state.nome} onChange={this.handleChange}/>
+               <Form.Group controlId="name">
+                  <Form.Label>Nome</Form.Label>
+                  <Form.Control type="text"  name="name" value={this.state.name} onChange={this.handleChange}/>
                </Form.Group>
                <Form.Group controlId="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email"  name="email" value={this.state.email} onChange={this.handleChange}/>
                </Form.Group>
-               <Form.Group controlId="senha">
+               <Form.Group controlId="password">
                   <Form.Label>Senha</Form.Label>
-                  <Form.Control type="password"  name="senha" onChange={this.handleChange}/>
+                  <Form.Control type="password"  name="password" onChange={this.handleChange}/>
                </Form.Group>
-               <Form.Group controlId="conf_senha">
+               <Form.Group controlId="re_password">
                   <Form.Label>Confirmar senha</Form.Label>
-                  <Form.Control type="password"  name="conf_senha" onChange={this.handleChange}/>
+                  <Form.Control type="password"  name="re_password" onChange={this.handleChange}/>
                </Form.Group>
                <Button variant="primary" onClick={this.handleSubmit}>Registrar</Button>{' '}
                <Button variant="secondary" type="button" onClick={this.handleCancel}>Cancelar</Button>

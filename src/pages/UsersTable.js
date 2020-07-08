@@ -68,8 +68,6 @@ function TableHeader(){
     return (
        <thead id="TableLayout">
             <tr>
-                <th>ID</th>
-                <th>Nome de Usuario</th>
                 <th>Nome</th>
                 <th>Email</th>
                 
@@ -109,12 +107,10 @@ function TableRow(props){
     const uri = `/edit/${user.id}`
     return(
         <tr>
-            <td>{user.id}</td>
-            <td>{user.username}</td>
-            <td>{user.nome}</td>
+            <td>{user.name}</td>
             <td>{user.email}</td>
             <td>
-                <Button href={uri} size="sm">Editar</Button>{" "}
+                <Button href={uri}  size="sm">Editar</Button>{" "}
                 <UserDelButton id={user.id} deleteRow={props.deleteRow}/>
             </td>
         </tr>
