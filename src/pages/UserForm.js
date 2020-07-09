@@ -48,7 +48,14 @@ class UserForm extends  React.Component{
          .then(res => res.json())
          .then(data => {
             console.log(data)
-            window.location.href = '/';
+            if(data.errors){
+               data.errors.forEach(err => {
+                  alert(err.msg)
+               });
+           } else {
+               alert("Usuario editado com sucesso!")
+               window.location.href = '/';
+           }
          })
          .catch(err => console.log(err))
    }
@@ -64,9 +71,7 @@ class UserForm extends  React.Component{
             .then(data => {
                this.setState({
                   name: data.data.name,
-                  email: data.data.email,
-                  password: data.data.password,
-                  re_password: data.data.re_password
+                  email: data.data.email
                })
             })
             .catch(err => console.log(err))

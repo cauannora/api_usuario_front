@@ -16,13 +16,13 @@ class UploadForm extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    handleChange(event) {this.setState({valueInput: event.target.value}); console.log(this.state.valueInput) }
-    handleClear() {this.setState({valueInput: "", valueOutput: ""}); console.log(this.state.valueInput) }
+    handleChange(event) {this.setState({valueInput: event.target.value});}
+    handleClear() {this.setState({valueInput: "", valueOutput: ""});}
     handleSubmit(event) {
         const texto =  {
             'texto' : this.state.valueInput
         };
-        console.log(this.state.valueInput)
+        // console.log(this.state.valueInput)
         const uri = `http://localhost:3001/upload/texto`;
         const options = {
             method: 'post',
@@ -32,12 +32,17 @@ class UploadForm extends React.Component {
             body: JSON.stringify(texto)
         };
         fetch(uri, options)
-            .then(data => data.json())
+            .then(data =>data.json())
             .then(data_msg => {
-                console.log(data_msg.data)
-                this.setState({valueOutput: data_msg.data})
+                if(data_msg.errors){
+                    data_msg.errors.forEach(err => { 
+                       alert(err.msg)
+                    });
+                } else {
+                    this.setState({valueOutput: data_msg.data})
+                }
             })
-            .catch(err => alert(err))
+            .catch(err => console.log(err))
 
       event.preventDefault();
     }

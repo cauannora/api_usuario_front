@@ -14,7 +14,7 @@ import Layout from './components/layout/Layout'
 // import Sobre from './pages/Sobre'
 // import FormLogin from './forms_buttons/FormLogin'
 import DecoderUpload from './pages/Decoder'
-
+// import {history} from './helpers/';
 function App() {
   return (
     <Router>

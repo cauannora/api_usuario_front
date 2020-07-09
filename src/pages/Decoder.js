@@ -4,7 +4,7 @@ import Header from '../components/layout/Header';
 import UploadForm from '../components/forms_buttons/FormUpload';
 
 function DecoderUpload() {
-    const title = "Decoder"
+    const title = "Desofuscador"
     return (
         <React.Fragment>
             <Header title={title}/>
