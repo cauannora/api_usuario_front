@@ -22,7 +22,7 @@ class UserForm extends  React.Component{
       console.log(this.state)
    }
    handleSubmit(){
-      var uri = 'http://localhost:3001'
+      var uri = 'http://192.168.15.165:3001'
       var options = {}
       if('id' in this.props){
          const id = this.props.id;
@@ -52,9 +52,13 @@ class UserForm extends  React.Component{
                data.errors.forEach(err => {
                   alert(err.msg)
                });
-           } else {
+           } else if(data.data.rows_updated === 1) {
+               console.log(data.data.rows_updated)
                alert("Usuario editado com sucesso!")
                window.location.href = '/';
+            } else if(data.msg){
+               alert(data.msg)
+               window.location.href = '/'; 
            }
          })
          .catch(err => console.log(err))
@@ -65,7 +69,7 @@ class UserForm extends  React.Component{
    componentDidMount(){
       if('id' in this.props){
          const user_id = this.props.id;
-         const uri = `http://localhost:3001/${user_id}`;
+         const uri = `http://192.168.15.165:3001/${user_id}`;
          fetch(uri)
             .then(res => res.json())
             .then(data => {
