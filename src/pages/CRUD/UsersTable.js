@@ -5,8 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-
-import UserDelButton from '../components/forms_buttons/UserDelButton';
+import UserDelButton from '../../components/forms_buttons/UserDelButton';
 
 class UsersTable extends React.Component{
     constructor(props){
@@ -17,6 +16,7 @@ class UsersTable extends React.Component{
         this.deleteRow = this.deleteRow.bind(this);
     }
     deleteRow(user_id){
+        
         const uri = `http://localhost:3001/${user_id}`;
         const options = {
             method: 'delete' ,
@@ -43,7 +43,6 @@ class UsersTable extends React.Component{
                         users: data.data
                     })
                 } else {
-                    //TRATAMENTO DE ERRO
                     throw new Error("Nenhum usuario encontrado!"); 
                 }
             })

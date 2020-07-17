@@ -46,7 +46,7 @@ class UploadForm extends React.Component {
 
       event.preventDefault();
     }
-
+    
     render(){
         return(
 
@@ -89,7 +89,7 @@ class UploadForm extends React.Component {
                                         <Form.Label>Arquivo para ser desofuscado</Form.Label>
                                         <Form.File id="attachment" name="attachment"/>
                                     </Form.Group>   
-                                    <Button id="btn" type="submit" variant="primary">Desofuscar</Button>
+                                    <Button id="btn" type='submit' variant="primary">Desofuscar</Button>
                                 </Form>
                         </Card.Body>
                     </Accordion.Collapse>

@@ -17,8 +17,6 @@ function LayoutNavbar(props) {
 				<NavDropdown title="Mais" id="basic-nav-dropdown">
 					<NavDropdown.Item href="/new">Cadastro Usuario</NavDropdown.Item>
 					<NavDropdown.Item href="/lista">Lista de Usuarios</NavDropdown.Item>
-					{/* <NavDropdown.Item href="/edit">Editar Usuario</NavDropdown.Item> */}
-					{/* <NavDropdown.Item href="/lista">Remover Usuario</NavDropdown.Item> */}
 					<NavDropdown.Divider />
 					<NavDropdown.Item href="/decode">Desofuscador</NavDropdown.Item>
 					{/* <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item> */}
@@ -27,7 +25,7 @@ function LayoutNavbar(props) {
 			</Navbar.Collapse>
 			</Nav>
 			<Nav id="navbarLayout">
-				<Button variant="outline-info">Login</Button>
+				<Button href='/login' variant="outline-info">Login</Button>
 			</Nav>
 		</Navbar>
 	);
