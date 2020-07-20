@@ -1,15 +1,13 @@
 import React from 'react';
 
-import Header from '../../components/layout/Header';
+import {Container} from './styles';
 import UploadForm from '../../components/forms_buttons/FormUpload';
 
 function DecoderUpload() {
-    const title = "Desofuscador"
     return (
-        <React.Fragment>
-            <Header title={title}/>
+        <Container>
             <UploadForm/>
-        </React.Fragment>
+        </Container>
         );
 }
 export default DecoderUpload;

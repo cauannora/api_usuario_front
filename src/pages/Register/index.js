@@ -95,7 +95,7 @@ class SingUp extends Component{
                         {this.state.error && this.state.error.re_password && <MsgError>{this.state.error['re_password']}</MsgError>}
                         <button type="submit">Cadastrar</button>
                         <hr/>
-                        <Link to="/testeL">Login</Link>
+                        <Link to="/login">Login</Link>
                         </Form>
                     </Container>
                 )
