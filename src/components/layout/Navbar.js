@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Button from 'react-bootstrap/Button'
+import { logout } from '../../helpers/auth'
 
 function LayoutNavbar(props) {
 	return (
@@ -15,22 +16,22 @@ function LayoutNavbar(props) {
 				<Nav.Link href="/">Home</Nav.Link>
 				<Nav.Link href="/sobre">Sobre</Nav.Link>
 				<NavDropdown title="Mais" id="basic-nav-dropdown">
-					<NavDropdown.Item href="/new">Cadastro Usuario</NavDropdown.Item>
+					<NavDropdown.Item href="/register">Cadastro Usuario</NavDropdown.Item>
 					<NavDropdown.Item href="/lista">Lista de Usuarios</NavDropdown.Item>
-					{/* <NavDropdown.Item href="/edit">Editar Usuario</NavDropdown.Item> */}
-					{/* <NavDropdown.Item href="/lista">Remover Usuario</NavDropdown.Item> */}
 					<NavDropdown.Divider />
 					<NavDropdown.Item href="/decode">Desofuscador</NavDropdown.Item>
-					{/* <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item> */}
 				</NavDropdown>
 				</Nav>
 			</Navbar.Collapse>
 			</Nav>
 			<Nav id="navbarLayout">
-				<Button variant="outline-info">Login</Button>
+				<Button onClick={() => { 
+					logout(); 
+				}} variant="outline-danger">Logout</Button>
 			</Nav>
 		</Navbar>
 	);
 }
+
 
 export default LayoutNavbar;

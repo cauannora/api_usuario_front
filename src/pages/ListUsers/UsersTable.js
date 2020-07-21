@@ -1,59 +1,49 @@
 import React from 'react';
-
+import api from '../../helpers/api_request'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-
-import UserDelButton from '../components/forms_buttons/UserDelButton';
+import UserDelButton from './UserDelButton';
 
 class UsersTable extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            users: []
+            users: [],
+            msg: ""
         }
         this.deleteRow = this.deleteRow.bind(this);
     }
     deleteRow(user_id){
-        const uri = `http://localhost:3001/${user_id}`;
-        const options = {
-            method: 'delete' ,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        fetch(uri, options)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                this.setState({
-                    users: this.state.users.filter(user => user.id !== user_id)
-                });
-            })
-            .catch(err => console.log(err));
+        const res = api.delete(`/${user_id}`);
+        res.then(data => {
+            this.setState({
+                users: this.state.users.filter(user => user.id !== user_id)
+            });
+        })
+        .catch(err => {
+            this.setState({msg: "Nenhum usuario encontrado!"})
+        });
     }
     componentDidMount() {
-        fetch('http://localhost:3001/')
-            .then(res => res.json())
-            .then(data => {
-                if(Array.isArray(data.data)) {
-                    this.setState({
-                        users: data.data
-                    })
-                } else {
-                    //TRATAMENTO DE ERRO
-                    throw new Error("Nenhum usuario encontrado!"); 
-                }
-            })
-            .catch(err => console.log(err))
+        const res = api.get("/");
+        res.then(res => {
+            if(Array.isArray(res.data.data)) {
+                this.setState({
+                    users: res.data.data
+                })
+            } else {
+                this.setState({msg: "Nenhum usuario encontrado!"})
+            }
+        })
+        .catch(err => console.log(err))
     }
     render(){
         return(
             <Row>
                 <Col>
-                    
                     <Table striped bordered id="UserTable">
                     <TableHeader />
                     <TableBody users={this.state.users} deleteRow={this.deleteRow}/>
@@ -68,11 +58,8 @@ function TableHeader(){
     return (
        <thead id="TableLayout">
             <tr>
-                <th>ID</th>
-                <th>Nome de Usuario</th>
                 <th>Nome</th>
                 <th>Email</th>
-                
             </tr>
         </thead>
     )
@@ -109,12 +96,10 @@ function TableRow(props){
     const uri = `/edit/${user.id}`
     return(
         <tr>
-            <td>{user.id}</td>
-            <td>{user.username}</td>
-            <td>{user.nome}</td>
+            <td>{user.name}</td>
             <td>{user.email}</td>
             <td>
-                <Button href={uri} size="sm">Editar</Button>{" "}
+                <Button href={uri}  size="sm">Editar</Button>{" "}
                 <UserDelButton id={user.id} deleteRow={props.deleteRow}/>
             </td>
         </tr>
