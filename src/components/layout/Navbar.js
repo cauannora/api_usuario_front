@@ -5,6 +5,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Button from 'react-bootstrap/Button'
 import { logout } from '../../helpers/auth'
 
+import {isAuthenticated} from '../../helpers/auth'
+
 function LayoutNavbar(props) {
 	return (
 		<Navbar expand="lg" bg="dark " variant="dark">
@@ -25,9 +27,12 @@ function LayoutNavbar(props) {
 			</Navbar.Collapse>
 			</Nav>
 			<Nav id="navbarLayout">
-				<Button onClick={() => { 
-					logout(); 
-				}} variant="outline-danger">Logout</Button>
+				{ isAuthenticated() && <Button onClick={() => { 
+						logout();
+						document.location = '';
+					}} variant="outline-danger">Logout</Button>
+				}
+				{ !isAuthenticated() && <Button href="/login" variant="outline-light">Login</Button> }
 			</Nav>
 		</Navbar>
 	);

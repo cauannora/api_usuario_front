@@ -41,10 +41,13 @@ class UsersTable extends React.Component{
         .catch(err => console.log(err))
     }
     render(){
+		const style = {
+			backgroundColor: 'white',
+		}
         return(
             <Row>
                 <Col>
-                    <Table striped bordered id="UserTable">
+                    <Table striped bordered id="UserTable" style={style}>
                     <TableHeader />
                     <TableBody users={this.state.users} deleteRow={this.deleteRow}/>
                     </Table>                

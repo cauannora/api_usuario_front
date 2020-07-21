@@ -35,9 +35,9 @@ const PrivateRoutes = ({ component: Component, ...rest}) => (
 const Routes = () => (
     <Router history={history}>
       <Switch>
-          <Route exact path='/login' component={SingIn}/>
-          <Route exact path='/register' component={SingUp}/>
           <Layout>
+			<Route exact path='/login' component={SingIn}/>
+			<Route exact path='/register' component={SingUp}/>
             <PrivateRoutes exact path='/decode' component={DecoderUpload}/>
             <PrivateRoutes exact path='/lista' component={Lista}/>
             <Route exact path='/' component={Home}/>
