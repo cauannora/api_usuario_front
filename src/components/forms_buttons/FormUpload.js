@@ -87,7 +87,9 @@ class UploadForm extends React.Component {
                                 method="POST" encType="multipart/form-data">
                                     <Form.Group>
                                         <Form.Label>Arquivo para ser desofuscado</Form.Label>
-                                        <Form.File id="attachment" name="attachment"/>
+                                        <Form.File id="attachment" name="attachment" onChange={(e) => {
+                                            console.log(e.target)
+                                        }}/>
                                     </Form.Group>   
                                     <Button id="btn" type='submit' variant="primary">Desofuscar</Button>
                                 </Form>
