@@ -13,7 +13,7 @@ function Layout(props){
 	}
     return (
 		<div style={style}>
-			<LayoutNavbar/>
+			<LayoutNavbar />
 			<Container id="containerLayout" style={containerStyle}>{props.children}</Container>
 			<footer>
 				<p>Todos os direitos reservados &copy; 2020</p>
