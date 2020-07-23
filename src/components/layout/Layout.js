@@ -1,7 +1,8 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import LayoutNavbar from '../layout/Navbar';
-import Background from '../../img/background.jpg';
+import Background from '../../assets/background.jpg';
+
 function Layout(props){
 	const style = {
 		backgroundImage: `url(${Background})`,

@@ -1,8 +1,8 @@
 import React from 'react';
-import foto_cauan from '../../img/cauan.jpeg';
-import foto_cleber from '../../img/cleber.jpg';
-import foto_eduardo from '../../img/eduardo.jpg';
-import foto_felipe from '../../img/felipe.jpeg';
+import foto_cauan from '../../assets/cauan.jpeg';
+import foto_cleber from '../../assets/cleber.jpg';
+import foto_eduardo from '../../assets/eduardo.jpg';
+import foto_felipe from '../../assets/felipe.jpeg';
 import '../../css/main.css';
 
 class Sobre extends React.Component {
