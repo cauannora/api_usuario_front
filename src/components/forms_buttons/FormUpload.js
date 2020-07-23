@@ -1,16 +1,19 @@
 import React from 'react';
 
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 
+import api from '../../helpers/api_request';
 class UploadForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {valueInput: '', valueOutput: ''};
+      this.state = {
+        valueInput: '',
+        valueOutput: '', 
+        msg: "",
+    };
       this.handleChange = this.handleChange.bind(this);
       this.handleClear = this.handleClear.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,40 +22,36 @@ class UploadForm extends React.Component {
     handleChange(event) {this.setState({valueInput: event.target.value});}
     handleClear() {this.setState({valueInput: "", valueOutput: ""});}
     handleSubmit(event) {
-        const texto =  {
-            'texto' : this.state.valueInput
-        };
-        // console.log(this.state.valueInput)
-        const uri = `http://localhost:3001/upload/texto`;
-        const options = {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(texto)
-        };
-        fetch(uri, options)
-            .then(data =>data.json())
-            .then(data_msg => {
-                if(data_msg.errors){
-                    data_msg.errors.forEach(err => { 
-                       alert(err.msg)
-                    });
+        const res = api.post('/decode/texto', {texto: this.state.valueInput});
+        res.then(res => {
+                this.setState({valueOutput: res.data.data})
+            })
+            .catch(err => {
+                console.log(err.response)
+                if(err.response.status >= 400 && err.response.status <=499){
+                    this.setState({msg: err.response.data.errors[0].msg})
+                    console.log(this.state)
                 } else {
-                    this.setState({valueOutput: data_msg.data})
+                    this.setState({msg: "Ocorreu um erro interno!"})
                 }
             })
-            .catch(err => console.log(err))
-
       event.preventDefault();
     }
     
     render(){
+		const style = {
+			color: 'tomato',
+			marginTop: '10px'
+		};
+		const accord = {
+			minWidth: '641px',
+			minHeight: 'calc(100vh - 124px)',
+			display: 'grid',
+			alignContent: 'center'
+		}
         return(
-
-        <Row>
-            <Col>
-            <Accordion defaultActiveKey="0">
+            
+            <Accordion defaultActiveKey="0" style={accord}>
                 <Card>
                     <Card.Header>
                         <Accordion.Toggle as={Button} variant="light" eventKey="0">
@@ -68,6 +67,7 @@ class UploadForm extends React.Component {
                                     <hr id="divider"/>
                                     <Form.Label>Texto desofuscado:</Form.Label>
                                     <Form.Control disabled as="textarea" value={this.state.valueOutput} name="r_texto" id="r_texto" rows="6" />
+                                    {this.state.msg && <p style={style}>{this.state.msg}</p>}
                                     <Button id="btn" onClick={this.handleSubmit} variant="primary">Desofuscar</Button>
                                     <Button id="btn" onClick={this.handleClear} variant="secondary">Limpar campo</Button>
                                 </Form>
@@ -82,7 +82,6 @@ class UploadForm extends React.Component {
                     </Card.Header>
                     <Accordion.Collapse eventKey="1">
                         <Card.Body>
-                                <Card.Title>Anexe o arquivo .log, .txt para desofuscar!</Card.Title>
                                 <Form action="http://localhost:3001/upload/file" 
                                 method="POST" encType="multipart/form-data">
                                     <Form.Group>
@@ -97,8 +96,6 @@ class UploadForm extends React.Component {
                     </Accordion.Collapse>
                 </Card>
             </Accordion>
-            </Col>
-        </Row>  
     )
 }
 }

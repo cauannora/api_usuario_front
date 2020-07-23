@@ -8,7 +8,6 @@ function Layout(props){
 		backgroundSize: 'cover'
 	};
 	const containerStyle = {
-		backgroundColor: 'rgba(255, 255, 255, 0.7)',
 		minHeight: 'calc(100vh - 50px - 74px)'
 	}
     return (
